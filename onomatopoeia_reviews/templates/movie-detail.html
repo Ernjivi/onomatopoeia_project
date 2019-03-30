@@ -10,4 +10,13 @@
         {{review.body}}
     </div>
 {% endfor %}
-    
+
+<h3>Add a review</h3>
+
+<form action="{% url 'add-review' movie.pk %}" method="post">
+    {% csrf_token %}
+    {{ review_form.as_p }}
+    <p>
+    <input type="submit" value="send">
+    </p>
+</form>
