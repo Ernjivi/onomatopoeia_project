@@ -10,3 +10,12 @@ class Movie(models.Model):
 
     def __str__(self):
         return self.name
+
+class Review(models.Model):
+
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name='reviews')
+    author = models.CharField(max_length=255)
+    body = models.TextField()
+
+    def __str__(self):
+        return self.movie.name

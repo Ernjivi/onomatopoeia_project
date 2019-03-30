@@ -1,0 +1,13 @@
+<h1>{{ movie.name }} Detail</h1>
+<ul>
+    <li>{{ movie.release_date }}</li>
+    <li>{{ movie.director }}</li>
+</ul>
+
+
+{% for review in movie.reviews.all %}
+    <div>
+        {{review.body}}
+    </div>
+{% endfor %}
+    
