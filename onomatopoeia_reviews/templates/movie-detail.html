@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block main_content %}
 <h1>{{ movie.name }} Detail</h1>
 <ul>
     <li>{{ movie.release_date }}</li>
@@ -20,3 +22,31 @@
     <input type="submit" value="send">
     </p>
 </form>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+    const form = document.querySelector('form')
+    
+
+    form.addEventListener('submit', (evt) => {
+        evt.preventDefault();
+        // Pocesar el formulario
+        let formData = new FormData();
+        formData.append('author', form.querySelector('#id_author').value)
+        formData.append('body', form.querySelector('#id_body').value)
+        formData.append('csrfmiddlewaretoken', form.querySelector('input[type="hidden"]').value)
+
+        // FormData
+        fetch("{% url 'add-review' movie.pk %}", {
+            method: 'POST',
+            body: formData
+        })
+        .then(resposne => resposne.json())
+        .catch(error => console.error('Error:', error))
+        .then(data => console.log(data));
+    })
+})();
+</script>
+{% endblock %}
