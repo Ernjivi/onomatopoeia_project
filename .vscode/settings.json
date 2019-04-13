@@ -1,3 +1,17 @@
 {
-    "python.pythonPath": "venv/bin/python3.7"
+    "editor.formatOnSave": true,
+    "python.linting.pep8Enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.pythonPath": "/Users/ernesto/SandBox/python-03/onomatopoeia_project/venv/bin/python",
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_django"
+    ],
+    "workbench.colorCustomizations": {
+        "titleBar.activeForeground": "#000",
+        "titleBar.inactiveForeground": "#000000CC",
+        "titleBar.activeBackground": "#FFC600",
+        "titleBar.inactiveBackground": "#FFC600CC"
+    },
+    "editor.tabSize": 4
 }
