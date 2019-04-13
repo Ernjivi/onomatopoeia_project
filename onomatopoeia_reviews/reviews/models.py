@@ -13,6 +13,9 @@ class Movie(models.Model):
     def __str__(self):
         return self.name
 
+    def review_count(self):
+        return self.reviews.count()
+
 
 class Review(models.Model):
 
