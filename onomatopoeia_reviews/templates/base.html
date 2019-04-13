@@ -8,6 +8,11 @@
     {% block styles %}{% endblock %}
 </head>
 <body>
+    
+    {% if not user.is_anonymous %}
+        <a href="{% url 'logout' %}">Logout</a>
+    {% endif %}
+        
     {% block main_content %}{% endblock %}
 
     {% block scripts %}{% endblock %}
